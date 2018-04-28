@@ -11,7 +11,7 @@ html, body {
 
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    transition: background 1s;
+    transition: background 0.5s;
 }
 
 .container {
@@ -60,8 +60,8 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background: red;
     padding: 20px;
+    transition: background 0.5s;
 }
 
 .nav .header .header__name {
@@ -74,11 +74,11 @@ body {
 
 .nav .header .header__desc {
     position: relative;
-    top: 2px;
+    top: 5px;
     left: 2px;
     font-size: 1.2vw;
-    color: #89867e;
-    opacity: 0.5;
+    color: #BDC3C7;
+    opacity: 0.8;
 }
  
 .main {

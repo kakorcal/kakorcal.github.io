@@ -3,9 +3,12 @@ window.onload = init;
 function init() {
     console.log('Page Loaded');
     var body = document.getElementsByTagName('body')[0];
+    var header = document.getElementsByClassName('header')[0];
+    var elements = [body, header];
+
     var main = document.getElementsByClassName('main')[0];
-    var backgroundCallBack = backgroundStyle(body, "url('/img/pattern.svg')", "repeat", "0/10px");
-    var handleBackgroundColor = changeBackgroundColor(main, backgroundCallBack, [196, 7, 19, 0.7]);
+    var backgroundCallBack = backgroundStyle(elements, "url('/img/pattern.svg')", "repeat", "0/10px");
+    var handleBackgroundColor = changeBackgroundColor(main, backgroundCallBack, "53, 73, 93");
     main.onscroll = handleBackgroundColor;
 
     // var colorArr = [
@@ -17,28 +20,31 @@ function init() {
     // ];
 }
 
-function backgroundStyle(body, url, repeatStyle, positionAndSize) {
+function backgroundStyle(elements, url, repeatStyle, positionAndSize) {
     var args = Array.prototype.slice.call(arguments, 1);
-    return function(colorArr) {
-        var rgba = colorArr.join(" ").trim().replace(/ /g, ",");
-        var color = "rgb(" + rgba + ")";
-        var style = color + " " + args.join(" ");
-        body.style.background = style;
+    return function(color) {
+        // var rgba = colorArr.join(" ").trim().replace(/ /g, ",");
+        var rgba = "rgb(" + color + ")";
+        var style = rgba + " " + args.join(" ");
+
+        for(var i = 0; i < elements.length; i++) {
+            var el = elements[i];
+            if(el.tagName === 'BODY') {
+                elements[i].style.background = style;       
+            }else {
+                elements[i].style.background = rgba;       
+            }
+        }
     }
 }
 
-function changeBackgroundColor(container, backgroundCallBack, initialColor) {
-    var max = 196;
-    var min = 7;
+function changeBackgroundColor(scrollContainer, backgroundCallBack, initialColor) {
     var current = initialColor;
-    var r = current[0];
-    var g = current[1];
-    var b = current[2];
-    var a = current[3];
-
     backgroundCallBack(current);
     
     /* 
+        var max = 196;
+        var min = 7;
         0. start with 196, 7, 7
         1. increase b value to 196
         2. decrease r value to 7
@@ -49,11 +55,26 @@ function changeBackgroundColor(container, backgroundCallBack, initialColor) {
     */
 
     return function() {
-        var position = container.scrollTop;
-        console.log(position);
+        var position = scrollContainer.scrollTop;
+        var color = current;
         
+        for (var i = 0; i < scrollContainer.children.length; i++) {
+            var child = scrollContainer.children[i];
+            var nextChild = scrollContainer.children[i+1];
 
-        current = [r,g,b,a];
-        backgroundCallBack(current);
+            if(nextChild) {
+                if(position + 200 >= child.offsetTop && position + 200 < nextChild.offsetTop) {
+                    color = child.dataset.color;
+                    break;
+                }
+            }else {
+                color = child.dataset.color;
+            }
+        }
+
+        if(current !== color) {
+            current = color;
+            backgroundCallBack(current);
+        }
     }
 }
