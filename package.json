@@ -4,7 +4,7 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "browser-sync start --server --config bs-config.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/kakorcal/kakorcal.github.io/issues"
   },
-  "homepage": "https://github.com/kakorcal/kakorcal.github.io#readme"
+  "homepage": "https://github.com/kakorcal/kakorcal.github.io#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "normalize": "^0.3.1",
+    "normalize.css": "^8.0.0"
+  }
 }
