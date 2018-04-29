@@ -55,24 +55,26 @@ body {
     padding: 5px;
 }
 
-.nav .header {
+.card__header {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     padding: 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     transition: background 0.5s;
 }
 
-.nav .header .header__name {
-    font-size: 2.5vw;
+.card__header__name {
+    font-size: 2.4vw;
     margin-bottom: 5px;
     /* color: #89867e; */
     color: #ffffff;
     letter-spacing: 1.3px;
 }
 
-.nav .header .header__desc {
+.card__header__desc {
     position: relative;
     top: 5px;
     left: 2px;
@@ -93,7 +95,7 @@ body {
     position: relative;
     width: 100%;
     height: calc(100vh - 40px);
-    border-radius: 3px;
+    border-radius: 5px;
     margin-bottom: 20px;
     padding: 20px;
     background: #ffffff;
@@ -103,6 +105,11 @@ body {
 
 .card:last-of-type {
     margin-bottom: 0;
+}
+
+.card--fluid {
+   height: auto;
+   min-height: 400px; 
 }
 
 /* .colors {

@@ -3,11 +3,11 @@ window.onload = init;
 function init() {
     console.log('Page Loaded');
     var body = document.getElementsByTagName('body')[0];
-    var header = document.getElementsByClassName('header')[0];
+    var header = document.getElementsByClassName('card__header')[0];
     var elements = [body, header];
 
     var main = document.getElementsByClassName('main')[0];
-    var backgroundCallBack = backgroundStyle(elements, "url('/img/pattern.svg')", "repeat", "0/10px");
+    var backgroundCallBack = backgroundStyle(elements, "url('/img/pattern.svg')", "repeat", "0/20px");
     var handleBackgroundColor = changeBackgroundColor(main, backgroundCallBack, "53, 73, 93");
     main.onscroll = handleBackgroundColor;
 
@@ -23,7 +23,6 @@ function init() {
 function backgroundStyle(elements, url, repeatStyle, positionAndSize) {
     var args = Array.prototype.slice.call(arguments, 1);
     return function(color) {
-        // var rgba = colorArr.join(" ").trim().replace(/ /g, ",");
         var rgba = "rgb(" + color + ")";
         var style = rgba + " " + args.join(" ");
 
