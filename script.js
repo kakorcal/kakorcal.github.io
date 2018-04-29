@@ -9,7 +9,11 @@ function init() {
     var main = document.getElementsByClassName('main')[0];
     var backgroundCallBack = backgroundStyle(elements, "url('/img/pattern.svg')", "repeat", "0/20px");
     var handleBackgroundColor = changeBackgroundColor(main, backgroundCallBack, "53, 73, 93");
-    main.onscroll = handleBackgroundColor;
+
+    main.onscroll = function () {
+        handleBackgroundColor();
+        handleNavIconToggle();
+    };
 
     // var colorArr = [
     //     [196, 7, 19],
@@ -41,18 +45,6 @@ function changeBackgroundColor(scrollContainer, backgroundCallBack, initialColor
     var current = initialColor;
     backgroundCallBack(current);
     
-    /* 
-        var max = 196;
-        var min = 7;
-        0. start with 196, 7, 7
-        1. increase b value to 196
-        2. decrease r value to 7
-        3. increase g value to 196
-        4. decrease b value to 7
-        5. increase r value to 196
-        6. decrease g value to 7
-    */
-
     return function() {
         var position = scrollContainer.scrollTop;
         var color = current;
@@ -64,10 +56,20 @@ function changeBackgroundColor(scrollContainer, backgroundCallBack, initialColor
             if(nextChild) {
                 if(position + 200 >= child.offsetTop && position + 200 < nextChild.offsetTop) {
                     color = child.dataset.color;
+
+                    if (!child.classList.contains('active')) {
+                        child.classList.add('active');
+                    }
                     break;
+                }else {
+                    child.classList.remove('active');
                 }
             }else {
                 color = child.dataset.color;
+                
+                if (!child.classList.contains('active')) {
+                    child.classList.add('active');
+                }
             }
         }
 
@@ -76,4 +78,8 @@ function changeBackgroundColor(scrollContainer, backgroundCallBack, initialColor
             backgroundCallBack(current);
         }
     }
+}
+
+function handleNavIconToggle() {
+
 }
