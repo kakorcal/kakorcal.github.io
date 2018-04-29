@@ -19,6 +19,7 @@
   "homepage": "https://github.com/kakorcal/kakorcal.github.io#readme",
   "devDependencies": {},
   "dependencies": {
+    "font-awesome": "^4.7.0",
     "normalize": "^0.3.1",
     "normalize.css": "^8.0.0"
   }

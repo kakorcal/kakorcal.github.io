@@ -22,17 +22,17 @@ function init() {
 
 function backgroundStyle(elements, url, repeatStyle, positionAndSize) {
     var args = Array.prototype.slice.call(arguments, 1);
+    var a = "0.8";
     return function(color) {
-        var rgba = "rgb(" + color + ")";
-        var style = rgba + " " + args.join(" ");
-
+        
         for(var i = 0; i < elements.length; i++) {
             var el = elements[i];
-            if(el.tagName === 'BODY') {
-                elements[i].style.background = style;       
-            }else {
-                elements[i].style.background = rgba;       
-            }
+            var rgba = el.tagName === 'BODY' ? 
+                "rgb(" + color + "," + a + ")" : "rgb(" + color + ")";
+            var style = el.tagName === 'BODY' ? 
+                rgba + " " + args.join(" ") : rgba;
+
+            elements[i].style.background = style;       
         }
     }
 }
