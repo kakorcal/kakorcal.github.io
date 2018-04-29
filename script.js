@@ -4,11 +4,15 @@ function init() {
     console.log('Page Loaded');
     var body = document.getElementsByTagName('body')[0];
     var header = document.getElementsByClassName('card__header')[0];
+    var ribbons = document.getElementsByClassName('card__ribbon');
     var elements = [body, header];
 
     var main = document.getElementsByClassName('main')[0];
     var backgroundCallBack = backgroundStyle(elements, "url('/img/pattern.svg')", "repeat", "0/20px");
     var handleBackgroundColor = changeBackgroundColor(main, backgroundCallBack, "53, 73, 93");
+    var ribbonCallback = backgroundStyle(ribbons);
+
+    initRibbons(ribbons);
 
     main.onscroll = function () {
         handleBackgroundColor();
@@ -24,6 +28,27 @@ function init() {
     // ];
 }
 
+function initRibbons(ribbons) {
+    for(var i = 0; i < ribbons.length; i++) {
+        var current = ribbons[i];
+        // card class
+        var parent = current.parentElement.parentElement;
+        var color = parent.dataset.color;
+        current.style.background = toRGBA(color);
+    }
+}
+
+function toRGBA(color, backgroundConfig, applyConfigCallback) {
+    var styles = "";
+    var a = "0.8";
+    if (backgroundConfig && applyConfigCallback()) {
+        styles = "rgb(" + color + "," + a + ")" + " " + backgroundConfig.join(" ");
+    }else {
+        styles = "rgb(" + color + ")";
+    }
+    return styles;
+}
+
 function backgroundStyle(elements, url, repeatStyle, positionAndSize) {
     var args = Array.prototype.slice.call(arguments, 1);
     var a = "0.8";
@@ -31,12 +56,8 @@ function backgroundStyle(elements, url, repeatStyle, positionAndSize) {
         
         for(var i = 0; i < elements.length; i++) {
             var el = elements[i];
-            var rgba = el.tagName === 'BODY' ? 
-                "rgb(" + color + "," + a + ")" : "rgb(" + color + ")";
-            var style = el.tagName === 'BODY' ? 
-                rgba + " " + args.join(" ") : rgba;
-
-            elements[i].style.background = style;       
+            var styles = toRGBA(color, args, function () { return el.tagName === 'BODY'; });
+            elements[i].style.background = styles;       
         }
     }
 }
@@ -57,19 +78,13 @@ function changeBackgroundColor(scrollContainer, backgroundCallBack, initialColor
                 if(position + 200 >= child.offsetTop && position + 200 < nextChild.offsetTop) {
                     color = child.dataset.color;
 
-                    if (!child.classList.contains('active')) {
-                        child.classList.add('active');
-                    }
+                    // if (!child.classList.contains('active')) {
+                    //     child.classList.add('active');
+                    // }
                     break;
-                }else {
-                    child.classList.remove('active');
                 }
             }else {
                 color = child.dataset.color;
-                
-                if (!child.classList.contains('active')) {
-                    child.classList.add('active');
-                }
             }
         }
 
