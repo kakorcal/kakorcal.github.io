@@ -5,21 +5,28 @@ function init() {
     var body = document.getElementsByTagName('body')[0];
     var header = document.getElementsByClassName('card__header')[0];
     var navIcons = document.getElementsByClassName('nav__icon');
+    var footerIcons = document.getElementsByClassName('footer__icon');
     var colorElements = [body, header];
 
     var main = document.getElementsByClassName('main')[0];
     var backgroundCallBack = backgroundStyle(colorElements, "url('/img/pattern.svg')", "repeat", "0/20px");
     var handleBackgroundColor = changeBackgroundColor(main, backgroundCallBack, "53, 73, 93");
     var handleNavIconToggle = navIconToggle(navIcons);
+    var handleFooterIconToggle = footerIconToggle(footerIcons, "53, 73, 93");
+    // var handleFooterIconRotation = footerIconRotation(footerIcons, main);
 
     // set inital data
     initRibbons();
     handleBackgroundColor();
     handleNavIconToggle();
+    handleFooterIconToggle();
+    // handleFooterIconRotation();
 
     main.onscroll = function () {
         handleBackgroundColor();
         handleNavIconToggle();
+        handleFooterIconToggle();
+        // handleFooterIconRotation();
     };
 }
 
@@ -115,6 +122,40 @@ function navIconToggle(navIcons) {
         }
     };
 }
+
+// change color of footer icons when active class changes
+function footerIconToggle(footerIcons, initialColor) {
+    var current = initialColor;
+    return function() {
+        var active = document.getElementsByClassName('active')[0];
+        var activeColor = active.dataset.color;
+
+        if (current !== activeColor) {
+            current = activeColor;
+            for (i = 0; i < footerIcons.length; i++) {
+                var icon = footerIcons[i];
+                icon.style.color = toRGBA(activeColor);
+            }
+        }
+    };
+}
+
+// rotate footer icons on scroll
+/* 
+function footerIconRotation(footerIcons, scrollContainer) {
+    return function() {
+        var deg = scrollContainer.scrollTop;
+        for (i = 0; i < footerIcons.length; i++) {
+            var icon = footerIcons[i];
+            icon.style.webkitTransform = 'rotate(' + deg + 'deg)';
+            icon.style.mozTransform = 'rotate(' + deg + 'deg)';
+            icon.style.msTransform = 'rotate(' + deg + 'deg)';
+            icon.style.oTransform = 'rotate(' + deg + 'deg)';
+            icon.style.transform = 'rotate(' + deg + 'deg)'; 
+        }
+    };
+}
+*/
 
 /* 
     // var colorArr = [
