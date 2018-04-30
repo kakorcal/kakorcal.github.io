@@ -29,54 +29,23 @@ body {
     display: table;
 }
 
+/* 
+    GRID
+*/
 .row {
     padding: 20px;
 }
 
 [class*='col__'] {
-    float: left;
-    padding-right: 20px;
-}
-
-[class*='col__']:last-of-type {
-    padding-right: 0;
-}
-
-.col__md--3 {
-    width: 25%;
-}
-
-.col__md--9 {
-    width: 75%;
-}
-
-.nav {
-    /* counter act offset of row padding */
-    height: calc(100vh - 40px);
-    padding: 5px;
-}
-
-.card__header {
     width: 100%;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    transition: background 0.5s;
 }
 
-.card__header__name {
-    font-size: 2.4vw;
-    margin-bottom: 5px;
-    color: #ffffff;
-    letter-spacing: 1.3px;
-}
-
-.card__header__desc {
-    position: relative;
-    top: 5px;
-    left: 2px;
-    font-size: 1.2vw;
-    color: #BDC3C7;
-    opacity: 0.8;
+/* 
+    MAIN SECTIONS
+*/
+.nav {
+    height: auto;
+    padding: 5px;
 }
  
 .main {
@@ -87,6 +56,9 @@ body {
     padding: 5px;
 }
 
+/* 
+    CARDS
+*/
 .card {
     position: relative;
     width: 100%;
@@ -141,6 +113,29 @@ body {
     margin-bottom: 0;
 }
 
+.card__header {
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    transition: background 0.5s;
+}
+
+.card__header__name {
+    font-size: 2.4vw;
+    margin-bottom: 5px;
+    color: #ffffff;
+    letter-spacing: 1.3px;
+}
+
+.card__header__desc {
+    position: relative;
+    top: 5px;
+    left: 2px;
+    font-size: 1.2vw;
+    color: #BDC3C7;
+    opacity: 0.8;
+}
+
 .card__footer {
     position: absolute;
     bottom: 20px;
@@ -179,6 +174,9 @@ body {
     font-size: 1.8vw;
 }
 
+/* 
+    NAV
+*/
 .nav__link {
     text-decoration: none;
     color: #333;
@@ -195,6 +193,9 @@ body {
    opacity: 0;
 }
 
+/* 
+    FOOTER
+*/
 .footer__icon {
     opacity: 0.7;
     transition: color 0.5s;
@@ -218,13 +219,36 @@ body {
 } */
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {} 
+/* @media only screen and (max-width: 600px) {}  */
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {} 
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {} 
+@media only screen and (min-width: 768px) {
+    [class*='col__'] {
+        float: left;
+        padding-right: 20px;
+    }
+
+    [class*='col__']:last-of-type {
+        padding-right: 0;
+    }
+
+
+    .nav {
+        /* counter act offset of row padding */
+        height: calc(100vh - 40px);
+    }
+
+    .col__md--3 {
+        width: 25%;
+    }
+
+    .col__md--9 {
+        width: 75%;
+    }
+} 
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {} 
