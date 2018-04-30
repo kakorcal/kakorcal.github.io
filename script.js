@@ -9,7 +9,7 @@ function init() {
     var colorElements = [body, header];
 
     var main = document.getElementsByClassName('main')[0];
-    var backgroundCallBack = backgroundStyle(colorElements, "url('/img/pattern.svg')", "repeat", "0/20px");
+    var backgroundCallBack = backgroundStyle(colorElements, "url('/img/gear.svg')", "repeat", "0/30px");
     var handleBackgroundColor = changeBackgroundColor(main, backgroundCallBack, "53, 73, 93");
     var handleNavIconToggle = navIconToggle(navIcons);
     var handleFooterIconToggle = footerIconToggle(footerIcons, "53, 73, 93");
