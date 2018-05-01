@@ -9,7 +9,12 @@ function init() {
     var colorElements = [body, header];
 
     var main = document.getElementsByClassName('main')[0];
-    var backgroundCallBack = backgroundStyle(colorElements, "url('/img/gear.svg')", "repeat", "0/30px");
+
+    // TODO: set backgroundImgSize depending on css sbreakpoints
+    var clientHeight = document.documentElement.clientHeight;
+    var backgroundImgSize = "0/" + Math.floor(clientHeight / 2) + "px";
+    console.log("Background image size", backgroundImgSize);
+    var backgroundCallBack = backgroundStyle(colorElements, "url('/img/robos.svg')", "repeat", backgroundImgSize);
     var handleBackgroundColor = changeBackgroundColor(main, backgroundCallBack, "53, 73, 93");
     var handleNavIconToggle = navIconToggle(navIcons);
     var handleFooterIconToggle = footerIconToggle(footerIcons, "53, 73, 93");
