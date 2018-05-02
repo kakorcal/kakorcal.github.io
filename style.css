@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+html {
+    font-size: 14px;
+}
+
 html, body {
     width: 100%;
     height: 100%;
@@ -16,6 +20,10 @@ body {
     transition: background 0.5s;
     color: #333;
     background: #fff;
+}
+
+h1, h2, h3, h4 {
+  font-weight: normal;
 }
 
 .container {
@@ -103,16 +111,16 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    width: 24vw;
-    height: 24vw;
+    width: 10rem;
+    height: 10rem;
     /* border-top-right-radius: 5px; */
     overflow: hidden;
 }
 
 .card__ribbon {
     position: absolute;
-    top: -12vw;
-    right: -12vw;
+    top: -5rem;
+    right: -5rem;
     width: 100%;
     height: 100%;
     -webkit-transform: rotate(45deg);
@@ -133,7 +141,7 @@ body {
     right: 0;
     color: #fff;
     letter-spacing: 1.2px;
-    font-size: 2.6vw;
+    font-size: 1.2rem;
 }
 
 .card__content {
@@ -144,12 +152,35 @@ body {
 
 .card__link {
     color: #333;
+    transition: color 0.2s;
 }
 
 .card__link--hover:hover {
     text-decoration: underline;
+    color: rgb(255, 123, 0);
 }
 
+.card__header {
+    margin-top: 0;
+    font-size: 1.6rem;
+}
+
+.card__desc {
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.card__desc__section {
+    margin-bottom: 20px;
+}
+
+.card__desc__section:last-of-type {
+    margin-bottom: 0;
+}
+
+.card__desc__list {
+    margin: 0;
+}
 
 /* 
     NAV
@@ -186,6 +217,7 @@ body {
 
 .nav__link--hover:hover {
     text-decoration: underline;
+    color: rgb(255, 123, 0);
 }
 
 .nav__list {
@@ -205,7 +237,7 @@ body {
     -webkit-transition: color 0.5s;
     -o-transition: color 0.5s;
     transition: color 0.5s;
-    font-size: 3em;
+    font-size: 1.8rem;
     margin: 0 5px;
 }
 
@@ -233,10 +265,26 @@ body {
 /* @media only screen and (max-width: 600px) {}  */
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {} 
+@media only screen and (min-width: 600px) {
+    html {
+        font-size: 16px;
+    }
+} 
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+    html {
+        font-size: 18px;
+    }
+} 
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    html {
+        font-size: 20px;
+    }
+
     [class*='col__'] {
         float: left;
         /* padding-right: 20px; */
@@ -296,7 +344,7 @@ body {
         list-style: none;
         margin: 0;
         padding: 20px;
-        font-size: 1.5vw;
+        font-size: 0.8rem;
     }
 
     .nav__list--right {
@@ -330,7 +378,7 @@ body {
     /* 
         CARD
     */
-    .card__ribbon-container {
+    /* .card__ribbon-container {
         width: 16vw;
         height: 16vw;
     }
@@ -338,15 +386,43 @@ body {
     .card__ribbon {
         top: -8vw;
         right: -8vw;
-    }
-
-    .card__ribbon__title {
-        font-size: 1.8vw;
-    }
+    } */
 } 
 
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {} 
-
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {}
+@media only screen and (min-width: 1200px) {
+  html {
+    font-size: 22px;
+  }
+}
+
+
+@media screen and (min-width: 1400px){
+  html {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 1500px){
+  html {
+    font-size: 26px;
+  }
+}
+
+@media screen and (min-width: 1600px){
+  html {
+    font-size: 28px;
+  }
+}
+
+@media screen and (min-width: 1700px){
+  html {
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 1800px){
+  html {
+    font-size: 32px;
+  }
+}
