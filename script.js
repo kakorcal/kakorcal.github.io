@@ -60,8 +60,8 @@ function backgroundStyle(elements) {
         for(var i = 0; i < elements.length; i++) {
             var el = elements[i];
             var styles = toRGBA(color);
-            // var styles = el.classList.contains('robos-background') ? 
-            //     toRGBA(color) : toRGBA(color);
+            var styles = el.classList.contains('robos-background') ? 
+                toRGBA(color, 0.7) : toRGBA(color);
             elements[i].style.backgroundColor = styles;       
         }
     }
@@ -128,6 +128,11 @@ function navIconToggle(navIcons) {
 // change color of footer icons when active class changes
 function footerIconToggle(footerIcons, initialColor) {
     var current = initialColor;
+    for (i = 0; i < footerIcons.length; i++) {
+        var icon = footerIcons[i];
+        icon.style.color = toRGBA(current);
+    }
+
     return function() {
         var active = document.getElementsByClassName('active')[0];
         if(active) {

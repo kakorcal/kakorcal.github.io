@@ -1,6 +1,5 @@
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -10,7 +9,10 @@ html, body {
 }
 
 body {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+    -webkit-transition: background 0.5s;
+    -o-transition: background 0.5s;
     transition: background 0.5s;
     color: #333;
     background: #fff;
@@ -91,7 +93,7 @@ body {
     content: "";
     display: block;
     width: 100%;
-    height: calc(100vh);
+    height: calc(100vh); /* - 40px */
     position: absolute;
     top: 0;
     left: 0;
@@ -101,20 +103,25 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    width: 180px;
-    height: 180px;
+    width: 24vw;
+    height: 24vw;
     /* border-top-right-radius: 5px; */
     overflow: hidden;
 }
 
 .card__ribbon {
     position: absolute;
-    top: -90px;
-    right: -90px;
+    top: -12vw;
+    right: -12vw;
     width: 100%;
     height: 100%;
-    transform: rotate(45deg);
-    box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+    -webkit-box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+            box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+    -webkit-transition: background 0.5s;
+    -o-transition: background 0.5s;
     transition: background 0.5s;
 }
 
@@ -126,8 +133,23 @@ body {
     right: 0;
     color: #fff;
     letter-spacing: 1.2px;
-    font-size: 1.8vw;
+    font-size: 2.6vw;
 }
+
+.card__content {
+    padding: 20px;
+    z-index: 500;
+    position: relative;
+}
+
+.card__link {
+    color: #333;
+}
+
+.card__link--hover:hover {
+    text-decoration: underline;
+}
+
 
 /* 
     NAV
@@ -153,7 +175,7 @@ body {
     top: 5px;
     left: 2px;
     font-size: 4vw;
-    color: #BDC3C7;
+    color: rgb(223, 230, 235);
     margin-bottom: 10px;
 }
 
@@ -180,6 +202,8 @@ body {
 
 .nav__footer__icon {
     opacity: 0.7;
+    -webkit-transition: color 0.5s;
+    -o-transition: color 0.5s;
     transition: color 0.5s;
     font-size: 3em;
     margin: 0 5px;
@@ -190,7 +214,7 @@ body {
 }
 
 .robos-background {
-    background-image: url("/img/robos.svg");;
+    background-image: url("/imgs/robos.svg");;
     background-repeat: repeat;
     background-size: 300px;
     background-position: center 0;
@@ -252,6 +276,8 @@ body {
         width: 100%;
         /* border-top-left-radius: 5px;
         border-top-right-radius: 5px; */
+        -webkit-transition: background 0.5s;
+        -o-transition: background 0.5s;
         transition: background 0.5s;
         position: static;
     }
@@ -286,19 +312,36 @@ body {
     }
 
     .nav__list__icon {
+        position: relative;
+        top: -1px;
         vertical-align: middle;
         margin-left: 5px;
+        -webkit-transition: opacity .5s;
+        -o-transition: opacity .5s;
         transition: opacity .5s;
         opacity: 0;
-    }
-
-    .nav__footer {
-
     }
 
     .nav__footer__icon {
         font-size: 1.33333333em;
         margin: 0;
+    }
+
+    /* 
+        CARD
+    */
+    .card__ribbon-container {
+        width: 16vw;
+        height: 16vw;
+    }
+
+    .card__ribbon {
+        top: -8vw;
+        right: -8vw;
+    }
+
+    .card__ribbon__title {
+        font-size: 1.8vw;
     }
 } 
 
