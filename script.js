@@ -5,9 +5,9 @@ function init() {
     // keep reference to all dom elements that will change
     // use them later in the callbacks
     var robos = document.getElementsByClassName('robos-background')[0];
-    var header = document.getElementsByClassName('card__header')[0];
-    var navIcons = document.getElementsByClassName('nav__icon');
-    var footerIcons = document.getElementsByClassName('footer__icon');
+    var header = document.getElementsByClassName('nav__header')[0];
+    var navIcons = document.getElementsByClassName('nav__list__icon');
+    var footerIcons = document.getElementsByClassName('nav__footer__icon');
     var colorElements = [robos, header];
     var main = document.getElementsByClassName('main')[0];
 
@@ -72,7 +72,7 @@ function backgroundStyle(elements) {
 function changeBackgroundColor(scrollContainer, backgroundCallBack, initialColor) {
     var current = initialColor;
     backgroundCallBack(current);
-    
+
     return function() {
         var position = scrollContainer.scrollTop;
         var color = current;
