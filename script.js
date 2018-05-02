@@ -2,36 +2,32 @@ window.onload = init;
 
 function init() {
     console.log('Page Loaded');
-    var body = document.getElementsByTagName('body')[0];
+    // keep reference to all dom elements that will change
+    // use them later in the callbacks
+    var robos = document.getElementsByClassName('robos-background')[0];
     var header = document.getElementsByClassName('card__header')[0];
     var navIcons = document.getElementsByClassName('nav__icon');
     var footerIcons = document.getElementsByClassName('footer__icon');
-    var colorElements = [body, header];
-
+    var colorElements = [robos, header];
     var main = document.getElementsByClassName('main')[0];
 
-    // TODO: set backgroundImgSize depending on css sbreakpoints
-    var clientHeight = document.documentElement.clientHeight;
-    var backgroundImgSize = "0/" + Math.floor(clientHeight / 2) + "px";
-    console.log("Background image size", backgroundImgSize);
-    var backgroundCallBack = backgroundStyle(colorElements, "url('/img/robos.svg')", "repeat", backgroundImgSize);
+    var backgroundCallBack = backgroundStyle(colorElements);
     var handleBackgroundColor = changeBackgroundColor(main, backgroundCallBack, "53, 73, 93");
     var handleNavIconToggle = navIconToggle(navIcons);
     var handleFooterIconToggle = footerIconToggle(footerIcons, "53, 73, 93");
-    // var handleFooterIconRotation = footerIconRotation(footerIcons, main);
+    var animateBackgroundPosition = changeBackgroundPosition(robos, "center", 0);
 
     // set inital data
     initRibbons();
     handleBackgroundColor();
     handleNavIconToggle();
     handleFooterIconToggle();
-    // handleFooterIconRotation();
+    window.requestAnimationFrame(animateBackgroundPosition);
 
     main.onscroll = function () {
         handleBackgroundColor();
         handleNavIconToggle();
         handleFooterIconToggle();
-        // handleFooterIconRotation();
     };
 }
 
@@ -48,11 +44,10 @@ function initRibbons() {
 }
 
 // utility function returning style in rgba format
-function toRGBA(color, backgroundConfig, applyConfigCallback) {
+function toRGBA(color, a) {
     var styles = "";
-    var a = "0.8";
-    if (backgroundConfig && applyConfigCallback()) {
-        styles = "rgb(" + color + "," + a + ")" + " " + backgroundConfig.join(" ");
+    if (a) {
+        styles = "rgb(" + color + "," + a + ")";
     }else {
         styles = "rgb(" + color + ")";
     }
@@ -60,14 +55,14 @@ function toRGBA(color, backgroundConfig, applyConfigCallback) {
 }
 
 // apply / change background color to all specified elements
-function backgroundStyle(elements, url, repeatStyle, positionAndSize) {
-    var args = Array.prototype.slice.call(arguments, 1);
-    var a = "0.8";
+function backgroundStyle(elements) {
     return function(color) {
         for(var i = 0; i < elements.length; i++) {
             var el = elements[i];
-            var styles = toRGBA(color, args, function () { return el.tagName === 'BODY'; });
-            elements[i].style.background = styles;       
+            var styles = toRGBA(color);
+            // var styles = el.classList.contains('robos-background') ? 
+            //     toRGBA(color) : toRGBA(color);
+            elements[i].style.backgroundColor = styles;       
         }
     }
 }
@@ -117,12 +112,14 @@ function changeBackgroundColor(scrollContainer, backgroundCallBack, initialColor
 function navIconToggle(navIcons) {
     return function() {
         var active = document.getElementsByClassName('active')[0];
-        for(i = 0; i < navIcons.length; i++) {
-            var icon = navIcons[i];
-            if(icon.dataset.nav === active.dataset.nav) {
-                icon.style.opacity = 1;
-            }else {
-                icon.style.opacity = 0;
+        if(active) {
+            for(i = 0; i < navIcons.length; i++) {
+                var icon = navIcons[i];
+                if(icon.dataset.nav === active.dataset.nav) {
+                    icon.style.opacity = 1;
+                }else {
+                    icon.style.opacity = 0;
+                }
             }
         }
     };
@@ -133,74 +130,37 @@ function footerIconToggle(footerIcons, initialColor) {
     var current = initialColor;
     return function() {
         var active = document.getElementsByClassName('active')[0];
-        var activeColor = active.dataset.color;
-
-        if (current !== activeColor) {
-            current = activeColor;
-            for (i = 0; i < footerIcons.length; i++) {
-                var icon = footerIcons[i];
-                icon.style.color = toRGBA(activeColor);
+        if(active) {
+            var activeColor = active.dataset.color;
+    
+            if (current !== activeColor) {
+                current = activeColor;
+                for (i = 0; i < footerIcons.length; i++) {
+                    var icon = footerIcons[i];
+                    icon.style.color = toRGBA(activeColor);
+                }
             }
         }
     };
 }
 
-// rotate footer icons on scroll
-/* 
-function footerIconRotation(footerIcons, scrollContainer) {
-    return function() {
-        var deg = scrollContainer.scrollTop;
-        for (i = 0; i < footerIcons.length; i++) {
-            var icon = footerIcons[i];
-            icon.style.webkitTransform = 'rotate(' + deg + 'deg)';
-            icon.style.mozTransform = 'rotate(' + deg + 'deg)';
-            icon.style.msTransform = 'rotate(' + deg + 'deg)';
-            icon.style.oTransform = 'rotate(' + deg + 'deg)';
-            icon.style.transform = 'rotate(' + deg + 'deg)'; 
+// visual effect of background moving upward
+function changeBackgroundPosition(element, x, y) {
+    var position = y;
+    var fps = 250;
+    var now;
+    var then = Date.now();
+    var interval = 1000 / fps;
+    var delta;
+    return function increment() {
+        window.requestAnimationFrame(increment);
+
+        now = Date.now();
+        delta = now - then;
+        if (delta > interval) {
+            element.style.backgroundPosition = x + " " + position + "px";
+            position -= 0.5;
+            then = now - (delta % interval);
         }
     };
 }
-*/
-
-/* 
-    // var colorArr = [
-    //     [196, 7, 19],
-    //     [148, 212, 56],
-    //     [254, 238, 53],
-    //     [128, 18, 146],
-    //     [15, 86, 240]
-    // ];
-
-        for (var i = 0; i < scrollContainer.children.length; i++) {
-            var child = scrollContainer.children[i];
-            var nextChild = scrollContainer.children[i+1];
-            var childOffset = child.offsetTop;
-            var nextChildOffset = nextChild ? nextChild.offsetTop : child.offsetTop + child.offsetHeight;
-
-            var childBCR = child.getBoundingClientRect();
-            var nextChildBCR = nextChild.getBoundingClientRect();
-            console.log('position', position);
-
-            console.log('child', childBCR);
-            console.log('nextchild', nextChildBCR);
-
-
-            if (position + 200 >= childOffset && position + 200 < nextChildOffset) {
-                color = child.dataset.color;
-
-                if (!child.classList.contains('active')) {
-                    child.classList.add('active');
-                }
-                break;
-            }else {
-                if (child.classList.contains('active')) {
-                    child.classList.remove('active');
-                }
-            }
-        }
-
-        if(current !== color) {
-            current = color;
-            backgroundCallBack(current);
-        }
-*/
