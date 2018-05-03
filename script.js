@@ -60,8 +60,8 @@ function backgroundStyle(elements) {
         for(var i = 0; i < elements.length; i++) {
             var el = elements[i];
             var styles = toRGBA(color);
-            var styles = el.classList.contains('robos-background') ? 
-                toRGBA(color, 0.7) : toRGBA(color);
+            // var styles = el.classList.contains('robos-background') ? 
+            //     toRGBA(color, 0.7) : toRGBA(color);
             elements[i].style.backgroundColor = styles;       
         }
     }
@@ -152,20 +152,23 @@ function footerIconToggle(footerIcons, initialColor) {
 // visual effect of background moving upward
 function changeBackgroundPosition(element, x, y) {
     var position = y;
-    var fps = 250;
+    // fps = 250
+    var fps = 33.333333333333333;
     var now;
     var then = Date.now();
-    var interval = 1000 / fps;
+    var interval = Math.round(1000 / fps);
     var delta;
+    
     return function increment() {
         window.requestAnimationFrame(increment);
-
+        
         now = Date.now();
         delta = now - then;
         if (delta > interval) {
-            element.style.backgroundPosition = x + " " + position + "px";
-            position -= 0.5;
             then = now - (delta % interval);
+            element.style.backgroundPosition = x + " " + position + "px";
+            // position -= 0.5
+            position -= 1;
         }
     };
 }
