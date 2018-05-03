@@ -1,20 +1,34 @@
 window.onload = init;
 
+/* 
+    colors
+    "53,73,93"
+    "39,174,96"
+    "15,86,240"
+    "200,10,52"
+    "128,18,146"
+    "142,94,52"
+*/
+
 function init() {
     console.log('Page Loaded');
+    var colors = ["53,73,93", "39,174,96", "15,86,240", "200,10,52", "128,18,146"];
+    var shuffled = shuffle(colors.slice());
+
+    initColorElements(shuffled);
+
     // keep reference to all dom elements that will change
     // use them later in the callbacks
     var robos = document.getElementsByClassName('robos-background')[0];
     var header = document.getElementsByClassName('nav__header')[0];
     var navIcons = document.getElementsByClassName('nav__list__icon');
     var footerIcons = document.getElementsByClassName('nav__footer__icon');
-    var colorElements = [robos, header];
     var main = document.getElementsByClassName('main')[0];
 
-    var backgroundCallBack = backgroundStyle(colorElements);
-    var handleBackgroundColor = changeBackgroundColor(main, backgroundCallBack, "53, 73, 93");
+    var backgroundCallBack = backgroundStyle([robos, header]);
+    var handleBackgroundColor = changeBackgroundColor(main, backgroundCallBack, shuffled[0]);
     var handleNavIconToggle = navIconToggle(navIcons);
-    var handleFooterIconToggle = footerIconToggle(footerIcons, "53, 73, 93");
+    var handleFooterIconToggle = footerIconToggle(footerIcons, shuffled[0]);
     var animateBackgroundPosition = changeBackgroundPosition(robos, "center", 0);
 
     // set inital data
@@ -29,6 +43,30 @@ function init() {
         handleNavIconToggle();
         handleFooterIconToggle();
     };
+}
+
+// shuffle colors and assign to each color element
+function initColorElements(colors) {
+    var colorElements = document.getElementsByClassName('colorElement');
+
+    for(var i = 0; i < colorElements.length; i++) {
+        colorElements[i].setAttribute("data-color", colors[i]);
+    }
+}
+
+// fisher-yates shuffle function
+function shuffle(array) {
+    var i = 0;
+    var j = 0;
+    var temp = null;
+
+    for (i = array.length - 1; i > 0; i -= 1) {
+        j = Math.floor(Math.random() * (i + 1));
+        temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
 }
 
 // add background color to all ribbons

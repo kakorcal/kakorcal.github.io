@@ -89,7 +89,7 @@ h1, h2, h3, h4 {
 }
 
 .card--padding {
-    padding: 20px;
+    padding: 10px;
 }
 
 .card--fluid {
@@ -111,16 +111,16 @@ h1, h2, h3, h4 {
     position: absolute;
     top: 0;
     right: 0;
-    width: 10rem;
-    height: 10rem;
+    width: 8rem;
+    height: 8rem;
     /* border-top-right-radius: 5px; */
     overflow: hidden;
 }
 
 .card__ribbon {
     position: absolute;
-    top: -5rem;
-    right: -5rem;
+    top: -4rem;
+    right: -4rem;
     width: 100%;
     height: 100%;
     -webkit-transform: rotate(45deg);
@@ -141,7 +141,7 @@ h1, h2, h3, h4 {
     right: 0;
     color: #fff;
     letter-spacing: 1.2px;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .card__content {
@@ -182,6 +182,17 @@ h1, h2, h3, h4 {
     margin: 0;
 }
 
+.card__img__container {
+    -webkit-box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+        box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+    width: 90%;
+    margin: 0 auto;
+}
+
+.card__img {
+    width: 100%;
+}
+
 /* 
     NAV
 */
@@ -191,6 +202,10 @@ h1, h2, h3, h4 {
     top: 20%;
     left: 0;
     right: 0;
+}
+
+.nav__header--padding {
+    padding: 20px;
 }
 
 .nav__header__name {
@@ -249,8 +264,7 @@ h1, h2, h3, h4 {
     background-image: url("/imgs/robos.svg");
     background-size: 100%;
     background-repeat: repeat; 
-    background-position-x: center;
-    background-position-y: 0;
+    background-position: center 0;
 } 
 
 /* .colors {
@@ -291,9 +305,9 @@ h1, h2, h3, h4 {
         /* padding-right: 20px; */
     }
 
-    [class*='col__']:last-of-type {
+    /* [class*='col__']:last-of-type {
         padding-right: 0;
-    }
+    } */
 
 
     .nav {
@@ -313,8 +327,20 @@ h1, h2, h3, h4 {
         width: 25%;
     }
 
+    .col__md--6 {
+        width: 50%;
+    }
+
     .col__md--9 {
         width: 75%;
+    }
+
+    /* 
+        CARD
+    */
+
+    .card--padding {
+        padding: 20px;
     }
 
     /* 
