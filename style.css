@@ -43,11 +43,17 @@ h1, h2, h3, h4 {
 /* 
     GRID
 */
-/* 
+
 .row {
-    padding: 20px;
-} 
-*/
+    /* padding: 20px; */
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 
 [class*='col__'] {
     width: 100%;
@@ -155,7 +161,7 @@ h1, h2, h3, h4 {
     transition: color 0.2s;
 }
 
-.card__link--hover:hover {
+.card__link:hover {
     text-decoration: underline;
     color: rgb(255, 123, 0);
 }
