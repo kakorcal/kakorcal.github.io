@@ -196,7 +196,9 @@ function changeBackgroundPosition(element, x, y) {
     var then = Date.now();
     var interval = Math.round(1000 / fps);
     var delta;
-    
+    // https://stackoverflow.com/questions/12752651/minimum-and-maximum-values-for-css-background-position-property
+    var minSize = -32767;
+
     return function increment() {
         window.requestAnimationFrame(increment);
         
@@ -207,6 +209,10 @@ function changeBackgroundPosition(element, x, y) {
             element.style.backgroundPosition = x + " " + position + "px";
             // position -= 0.5
             position -= 1;
+
+            if (position < minSize) {
+                position = 0;
+            }
         }
     };
 }
