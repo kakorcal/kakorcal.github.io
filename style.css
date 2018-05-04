@@ -167,7 +167,7 @@ h1, h2, h3, h4 {
 
 .card__desc {
     font-size: 0.9rem;
-    line-height: 1.8;
+    line-height: 2;
 }
 
 .card__desc__section {
@@ -183,14 +183,49 @@ h1, h2, h3, h4 {
 }
 
 .card__img__container {
-    -webkit-box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
-        box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
     width: 90%;
     margin: 0 auto;
 }
 
 .card__img {
     width: 100%;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.card__button-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.card__button {
+    font-size: 0.9rem;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 20px;
+    padding: 0.8rem;
+    background: rgba(201, 201, 201, 0.1);
+    transition: color 0.2s;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+}
+
+.card__button:last-of-type {
+    margin-right: 0;
+}
+
+.card__button:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: rgb(255, 123, 0);
+}
+
+.card__button:active {
+    position: relative;
+    top: 1px;
 }
 
 /* 
@@ -277,12 +312,16 @@ h1, h2, h3, h4 {
 } */
 
 /* Extra small devices (phones, 600px and down) */
-/* @media only screen and (max-width: 600px) {}  */
+/* @media only screen and (max-width: 600px) {} */
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     html {
         font-size: 16px;
+    }
+
+    .card__button-container {
+        text-align: right;
     }
 } 
 
