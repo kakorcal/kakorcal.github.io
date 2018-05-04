@@ -303,7 +303,7 @@ h1, h2, h3, h4 {
 
 .robos-background {   
     background-image: url("/imgs/robos.svg");
-    background-size: 101%;
+    background-size: 105%;
     background-repeat: repeat; 
     background-position: center 0;
 } 
