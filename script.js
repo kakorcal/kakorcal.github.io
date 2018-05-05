@@ -12,7 +12,7 @@ window.onload = init;
 
 function init() {
     console.log('Page Loaded');
-    var colors = ["53,73,93", "39,174,96", "15,86,240", "200,10,52", "128,18,146"];
+    var colors = ["53,73,93", "39,174,96", "15,86,240", "200,10,52", "128,18,146", "142,94,52"];
     var shuffled = shuffle(colors.slice());
 
     initColorElements(shuffled);

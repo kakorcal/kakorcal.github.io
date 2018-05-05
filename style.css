@@ -271,7 +271,7 @@ h1, h2, h3, h4 {
     color: #333;
 }
 
-.nav__link--hover:hover {
+.nav__link:hover {
     text-decoration: underline;
     color: rgb(255, 123, 0);
 }
