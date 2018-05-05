@@ -44,15 +44,15 @@ h1, h2, h3, h4 {
     GRID
 */
 
-.row {
-    /* padding: 20px; */
+/* .row {
+    padding: 20px;
 }
 
 .row::after {
     content: "";
     clear: both;
     display: table;
-}
+} */
 
 
 [class*='col__'] {
@@ -62,6 +62,7 @@ h1, h2, h3, h4 {
 /* 
     MAIN SECTIONS
 */
+
 .nav {
     height: auto;
     /* padding: 5px; */
@@ -78,6 +79,7 @@ h1, h2, h3, h4 {
 /* 
     CARDS
 */
+
 .card {
     position: relative;
     width: 100%;
@@ -276,6 +278,11 @@ h1, h2, h3, h4 {
     color: rgb(255, 123, 0);
 }
 
+.nav__link--disable-hover:hover {
+    text-decoration: none;
+    color: #333;
+}
+
 .nav__list {
     display: none;
 }
@@ -308,18 +315,6 @@ h1, h2, h3, h4 {
     background-position: center 0;
 } 
 
-/* .colors {
-    color: rgb(196, 7, 19);
-    color: rgb(148, 212, 56);
-    color: rgb(15, 86, 240);
-    color: rgb(251, 207, 87);
-    color: rgb(128, 18, 146);
-    color: rgb(253, 161, 64);
-} */
-
-/* Extra small devices (phones, 600px and down) */
-/* @media only screen and (max-width: 600px) {} */
-
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     html {
@@ -337,7 +332,6 @@ h1, h2, h3, h4 {
         font-size: 18px;
     }
 } 
-
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
@@ -372,10 +366,6 @@ h1, h2, h3, h4 {
         width: 25%;
     }
 
-    .col__md--6 {
-        width: 50%;
-    }
-
     .col__md--9 {
         width: 75%;
     }
@@ -387,6 +377,16 @@ h1, h2, h3, h4 {
     .card--padding {
         padding: 20px;
     }
+
+    /* .card__ribbon-container {
+        width: 16vw;
+        height: 16vw;
+    }
+
+    .card__ribbon {
+        top: -8vw;
+        right: -8vw;
+    } */
 
     /* 
         NAV
@@ -446,19 +446,6 @@ h1, h2, h3, h4 {
         font-size: 1.33333333em;
         margin: 0;
     }
-
-    /* 
-        CARD
-    */
-    /* .card__ribbon-container {
-        width: 16vw;
-        height: 16vw;
-    }
-
-    .card__ribbon {
-        top: -8vw;
-        right: -8vw;
-    } */
 } 
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
