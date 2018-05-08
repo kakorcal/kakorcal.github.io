@@ -315,6 +315,15 @@ h1, h2, h3, h4 {
     background-position: center 0;
 } 
 
+.douty {
+    background-image: url("/assets/douty.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 100%;
+    width: 100px;
+    height: 100px;
+}
+
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     html {
