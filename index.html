@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="/lib/fontawesome-free-5.0.10/web-fonts-with-css/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
     <div class="container row">
         <div class="col__md--3">
@@ -24,14 +26,29 @@
                         </a>
                     </div>
                     <ul class="nav__list nav__list--right">
-                        <li><a href="#about" class="nav__link">About</a>  <i class="nav__list__icon fas fa-lg fa-caret-right" data-nav="about"></i></li>
-                        <li><a href="#projects" class="nav__link">Projects</a>  <i class="nav__list__icon fas fa-lg fa-caret-right" data-nav="projects"></i></li>
-                        <li><a href="#contact" class="nav__link">Contact</a>  <i class="nav__list__icon fas fa-lg fa-caret-right" data-nav="contact"></i></li>
+                        <li>
+                            <a href="#about" class="nav__link">About</a>
+                            <i class="nav__list__icon fas fa-lg fa-caret-right" data-nav="about"></i>
+                        </li>
+                        <li>
+                            <a href="#projects" class="nav__link">Projects</a>
+                            <i class="nav__list__icon fas fa-lg fa-caret-right" data-nav="projects"></i>
+                        </li>
+                        <li>
+                            <a href="#contact" class="nav__link">Contact</a>
+                            <i class="nav__list__icon fas fa-lg fa-caret-right" data-nav="contact"></i>
+                        </li>
                     </ul>
                     <div class="nav__footer">
-                        <a href="https://github.com/kakorcal" target="_blank" class="nav__link"><i class="nav__footer__icon fab fa-lg fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/kennethkorcal/" target="_blank" class="nav__link"><i class="nav__footer__icon fab fa-lg fa-linkedin"></i></a>
-                        <a href="/assets/kenneth_korcal_resume.pdf" target="_blank" class="nav__link"><i class="nav__footer__icon fas fa-lg fa-file-alt"></i></a>
+                        <a href="https://github.com/kakorcal" target="_blank" class="nav__link">
+                            <i class="nav__footer__icon fab fa-lg fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/kennethkorcal/" target="_blank" class="nav__link">
+                            <i class="nav__footer__icon fab fa-lg fa-linkedin"></i>
+                        </a>
+                        <a href="/assets/kenneth_korcal_resume.pdf" target="_blank" class="nav__link">
+                            <i class="nav__footer__icon fas fa-lg fa-file-alt"></i>
+                        </a>
                     </div>
                 </div>
             </nav>
@@ -48,32 +65,29 @@
                         <h1 class="card__header">Hello!</h1>
                         <div class="card__desc">
                             <div class="card__desc__section">
-                                I am a front-end developer currently residing in San Francisco, CA.
-                                After completing the immersive web development coding bootcamp at 
-                                <a href="https://www.galvanize.com/san-francisco/web-development#curriculum" target="_blank" class="card__link card__link--hover">Galvanize</a>,
-                                I joined the engineering team at
+                                I am a front-end developer currently residing in San Francisco, CA. After completing the immersive web development coding
+                                bootcamp at
+                                <a href="https://www.galvanize.com/san-francisco/web-development#curriculum" target="_blank" class="card__link card__link--hover">Galvanize</a>, I joined the engineering team at
                                 <a href="http://www.myfundpaas.com/" target="_blank" class="card__link card__link--hover">FundPaaS Inc</a>
-                                and worked on implementing their UI updates and API integrations for over a year. 
-                                I am also a recent graduate from 
+                                and worked on implementing their UI updates and API integrations for over a year. I am also a recent graduate from
                                 <a href="https://www.umuc.edu/" target="_blank" class="card__link card__link--hover">UMUC</a>
                                 with a degree in computer science.
-                            </div>   
+                            </div>
                             <div class="card__desc__section">
-                                I hold a strong passion for building things that are engaging, creative, and fun for people to use. 
-                                Coding is a great medium for me to express these desires and to share my creation to the world.
-                                You can checkout the 
+                                I hold a strong passion for building things that are engaging, creative, and fun for people to use. Coding is a great medium
+                                for me to express these desires and to share my creation to the world. You can checkout the
                                 <a href="#projects" class="card__link card__link--hover">projects</a>
                                 section below to see examples of my work over this past year.
-                            </div>           
+                            </div>
                             <div class="card__desc__section">
                                 Programming Skills:
                                 <ul class="card__desc__list">
                                     <li>Languages: Javascript, ES6, HTML, Pug, CSS, SASS, Java</li>
-                                    <li>Libraries: React, Redux, jQuery, Underscore</li>
-                                    <li>Frameworks: Express, Phaser, Mocha</li>
+                                    <li>Libraries: React, Redux, Axios, Lodash</li>
+                                    <li>Frameworks: Express, Phaser, Mocha, Jest</li>
                                     <li>Servers: NodeJS, Nginx</li>
-                                    <li>Tools: VSCode, Webpack, Gulp</li>
-                                </ul>              
+                                    <li>Tools: VSCode, Webpack, Gulp, PostCSS</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -89,14 +103,16 @@
                         <div class="card__desc">
                             <div class="card__desc__section">
                                 <div class="card__img__container">
-                                    <img class="card__img" src="/assets/christy-natsumi-jewelry-1280.jpg" alt="Christy Natsumi Jewelry"/>
+                                    <img class="card__img" src="/assets/christy-natsumi-jewelry-1280.jpg" alt="Christy Natsumi Jewelry" />
                                 </div>
                             </div>
                             <div class="card__desc__section">
-                                Christy Natsumi is a San Francisco based independent design studio that creates modern jewelry essentials.
-                                I worked closely with the site designer, Greg Comstock, to assist in migrating the existing codebase from the Squarespace platform to a Shopify powered website.
-                                The process started by unwinding and converting all the JSON templates and LESS files into Liquid templates and SCSS files respectively.
-                                I made specfic gulp tasks for efficient development and deployment of code. Furthermore, I enhanced the site with additional features such as lazyloading, discounts, and gift cards.
+                                Christy Natsumi is a San Francisco based independent design studio that creates modern jewelry essentials. I worked closely
+                                with the site designer, Greg Comstock, to assist in migrating the existing codebase from
+                                the Squarespace platform to a Shopify powered website. The process started by unwinding and
+                                converting all the JSON templates and LESS files into Liquid templates and SCSS files respectively.
+                                I made specfic gulp tasks for efficient development and deployment of code. Furthermore,
+                                I enhanced the site with additional features such as lazyloading, discounts, and gift cards.
                             </div>
                         </div>
                         <div class="card__button-container">
@@ -120,11 +136,12 @@
                                 </div>
                             </div>
                             <div class="card__desc__section">
-                                Bubble Shooter is an HTML5 desktop canvas game inspired by the 
-                                <a class="card__link" target="_blank" href="https://en.wikipedia.org/wiki/Puzzle_Bobble">Puzzle Bobble series</a>.
-                                This was a fun project I built using the Phaser.js framework and NodeJS. 
-                                I was able to make use of my favorite collection ES6 features to create modular classes that can be reused during different stages of the game state.
-                                I also took initiative to optimize content delivery by minifying scripts with webpack and configuring the nginx server to cache and gzip the assets.
+                                Bubble Shooter is an HTML5 desktop canvas game inspired by the
+                                <a class="card__link" target="_blank" href="https://en.wikipedia.org/wiki/Puzzle_Bobble">Puzzle Bobble series</a>. This was a fun project I built using the Phaser.js framework and
+                                NodeJS. I was able to make use of my favorite collection ES6 features to create modular classes
+                                that can be reused during different stages of the game state. I also took initiative to optimize
+                                content delivery by minifying scripts with webpack and configuring the nginx server to cache
+                                and gzip the assets.
                             </div>
                         </div>
                         <div class="card__button-container">
@@ -143,15 +160,18 @@
                         <h1 class="card__header">FundPaaS</h1>
                         <div class="card__desc">
                             <div class="card__desc__section">
-                                <div class="card__img__container">    
+                                <div class="card__img__container">
                                     <img class="card__img" type="image/jpeg" srcset="/assets/fundpaas-1280.jpg" alt="FundPaaS" />
                                 </div>
                             </div>
                             <div class="card__desc__section">
-                                FundPaaS, a Funding Platform as a Service, helps businesses raise capital by turning their customers into investors from their website.
-                                During my time with the company, I contributed to enchancing the investor, issuer, and admin pages by applying accurate error validations, input sanitization, and pagination features.
-                                I also helped with building the Java endpoints for the core API product. These experiences led me to learn the best practices for constructing RESTful APIs and creating organized endpoints using the MVC pattern.
-                                Furthermore, I became proficient at debugging issues across development, staging, and production environments.
+                                FundPaaS, a Funding Platform as a Service, helps businesses raise capital by turning their customers into investors from
+                                their website. During my time with the company, I contributed to enchancing the investor,
+                                issuer, and admin pages by applying accurate error validations, input sanitization, and pagination
+                                features. I also helped with building the Java endpoints for the core API product. These
+                                experiences led me to learn the best practices for constructing RESTful APIs and creating
+                                organized endpoints using the MVC pattern. Furthermore, I became proficient at debugging
+                                issues across development, staging, and production environments.
                             </div>
                         </div>
                         <div class="card__button-container">
@@ -177,11 +197,13 @@
                                 </div>
                             </div>
                             <div class="card__desc__section">
-                                This is a project I made in one week during my time at the Galvanize coding bootcamp. 
-                                It is a simple game where the player wins by clicking through wikipedia pages to until they reach the destination article prompted at the beginning.
-                                The application was built using AngularJS, Express, and PostgreSQL. When building the project, I faced the challenge of keeping users on the same page after they have clicked on a link.
-                                I was able to overcome this problem by utilizing a web scraping library on the back-end to scrape the wikipedia articles, 
-                                parse them into Angular directives, and send them back to the client using Socket.io in real time. 
+                                This is a project I made in one week during my time at the Galvanize coding bootcamp. It is a simple game where the player
+                                wins by clicking through wikipedia pages to until they reach the destination article prompted
+                                at the beginning. The application was built using AngularJS, Express, and PostgreSQL. When
+                                building the project, I faced the challenge of keeping users on the same page after they
+                                have clicked on a link. I was able to overcome this problem by utilizing a web scraping library
+                                on the back-end to scrape the wikipedia articles, parse them into Angular directives, and
+                                send them back to the client using Socket.io in real time.
                             </div>
                         </div>
                         <div class="card__button-container">
@@ -200,15 +222,23 @@
                         <h1 class="card__header">Keep In Touch</h1>
                         <div class="card__desc">
                             <div class="card__desc__section">
-                                I am currently seeking opportunities where I can utilize and expand my skillsets. 
-                                Feel free to learn more about me through the following links. I hope to get in touch with you soon!
+                                I am currently seeking opportunities where I can utilize and expand my skillsets. Feel free to learn more about me through
+                                the following links. I hope to get in touch with you soon!
                             </div>
-                            <div class="card__desc__section"> 
+                            <div class="card__desc__section">
                                 <ul class="card__desc__list">
-                                    <li><a href="/assets/kenneth_korcal_resume.pdf" target="_blank" class="card__link">Download my resume</a></li>
-                                    <li><a href="https://github.com/kakorcal" target="_blank" class="card__link">View my Github</a></li>
-                                    <li><a href="https://www.linkedin.com/in/kennethkorcal/" target="_blank" class="card__link">Connect on LinkedIn</a></li>
-                                    <li><a href="https://www.codewars.com/users/ken_g22" target="_blank" class="card__link">Visit my Codewars page</a></li>
+                                    <li>
+                                        <a href="/assets/kenneth_korcal_resume.pdf" target="_blank" class="card__link">Download my resume</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/kakorcal" target="_blank" class="card__link">View my Github</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.linkedin.com/in/kennethkorcal/" target="_blank" class="card__link">Connect on LinkedIn</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.codewars.com/users/ken_g22" target="_blank" class="card__link">Visit my Codewars page</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -219,4 +249,5 @@
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
